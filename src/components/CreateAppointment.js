@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { AppointmentContext } from "../contexts/AppointmentContext";
 import AppointmentForm from "./AppointmentForm";
+import styles from "../styles/styles.module.css";
 
 const CreateAppointment = () => {
   const initialAppointmentDetails = {
@@ -27,14 +28,16 @@ const CreateAppointment = () => {
   };
 
   return (
-    <>
-      <h2>Create an Appointment</h2>
-      <AppointmentForm
-        appointment={newAppointment}
-        setAppointment={setNewAppointment}
-        handleSubmit={handleSubmit}
-      />
-    </>
+    <div className={styles["create-appointment-wrapper"]}>
+      <div className={styles.container}>
+        <h2 className={styles["header-text"]}>Create an Appointment</h2>
+        <AppointmentForm
+          appointment={newAppointment}
+          setAppointment={setNewAppointment}
+          handleSubmit={handleSubmit}
+        />
+      </div>
+    </div>
   );
 };
 

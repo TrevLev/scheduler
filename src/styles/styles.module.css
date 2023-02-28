@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&family=Roboto+Slab&display=swap");
+
+.app {
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  font-family: "Fira Code", monospace;
+}
+
+.title {
+  font-family: "Fira Code", monospace;
+  font-weight: bold;
+  font-size: 3rem;
+  padding: 1rem;
+  background-color: #25b8d9;
+  color: #ffffff;
+  text-align: center;
+}
+
+.container {
+  max-width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.create-appointment-wrapper {
+  background-color: #effcf9;
+  color: #0a4273;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appointment-list-wrapper {
+  background-color: #0a4273;
+  color: #effcf9;
+  flex-grow: 1;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appointment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header-text {
+  font-family: "Roboto Slab", serif;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.form-field-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 0.5rem;
+  border: 0.15rem solid #0a4273;
+  text-align: center;
+}
+
+.form-field:focus {
+  outline-color: #25b8d9;
+}
+
+.button {
+  border-radius: 1rem;
+  background-color: #25b8d9;
+  color: #ffffff;
+  font-family: "Fira Code", monospace;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  width: fit-content;
+  cursor: pointer;
+  border: 0.15rem solid #0a4273;
+}
+
+.button:hover {
+  background-color: #ffffff;
+  color: #25b8d9;
+  border-color: #25b8d9;
+}
+
+.description-text {
+  background-color: #effcf9;
+  color: #0a4273;
+  padding: 0.5rem 1rem;
+  font-family: "Roboto Slab", serif;
+  border-radius: 0.5rem;
+}

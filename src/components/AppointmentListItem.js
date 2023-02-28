@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AppointmentContext } from "../contexts/AppointmentContext";
 import AppointmentForm from "./AppointmentForm";
+import styles from "../styles/styles.module.css";
 
 const AppointmentListItem = ({ appointment }) => {
   const { updateAppointment, deleteAppointment } =
@@ -19,6 +20,23 @@ const AppointmentListItem = ({ appointment }) => {
     setIsUpdating(false);
   };
 
+  const formatDate = (date) => {
+    const year = date.substring(0, 4);
+    const month = date.substring(5, 7);
+    const day = date.substring(8, 10);
+
+    return `${month}/${day}/${year}`;
+  };
+
+  const formatTime = (time) => {
+    const hours = Number(time.substring(0, 2));
+    const minutes = Number(time.substring(3, 5));
+
+    const isAm = hours < 12;
+
+    return `${hours % 12 || 12}:${minutes} ${isAm ? "AM" : "PM"}`;
+  };
+
   return isUpdating ? (
     <AppointmentForm
       appointment={updatedAppointment}
@@ -28,12 +46,21 @@ const AppointmentListItem = ({ appointment }) => {
   ) : (
     <li>
       <p>
-        When: {appointment.date} at {appointment.time} | Where:{" "}
+        {formatDate(appointment.date)} at {formatTime(appointment.time)},{" "}
         {appointment.location}
       </p>
-      <p>{appointment.description}</p>
-      <button onClick={() => setIsUpdating(true)}>Edit</button>
-      <button onClick={() => deleteAppointment(appointment.id)}>Delete</button>
+      <div className={styles["description-text"]}>
+        <p>{appointment.description}</p>
+      </div>
+      <button onClick={() => setIsUpdating(true)} className={styles.button}>
+        Edit
+      </button>
+      <button
+        onClick={() => deleteAppointment(appointment.id)}
+        className={styles.button}
+      >
+        Delete
+      </button>
     </li>
   );
 };
